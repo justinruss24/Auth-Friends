@@ -1,5 +1,7 @@
 import React from 'react';
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Navbar from "./Navbar";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
 
 class Login extends React.Component {
     state = {
@@ -20,8 +22,8 @@ class Login extends React.Component {
 
     login = e => {
         e.preventDefault();
-        axiosWithAuth()
-        .post('/api/login', this.state.credentials)
+        axiosWithAuth
+            .post('/api/login', this.state.credentials)
         .then(response => {
             console.log(response);
             localStorage.setItem('token', JSON.stringify(response.data.payload));
@@ -32,6 +34,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <form onSubmit={this.login}>
                     <input
                         type="text"

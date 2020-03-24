@@ -1,5 +1,6 @@
 import React from 'react';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import PrivateNav from "./PrivateNav";
 
 class Friends extends React.Component {
     state = {
@@ -46,6 +47,7 @@ class Friends extends React.Component {
     render() {
         return (
             <div>
+                <PrivateNav />
                 <form>
                     <h1>Make a Friend</h1>
                     <input
