@@ -1,26 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Friends from "./components/Friends";
-import PrivateRoute from "./components/PrivateRoute";
+import FriendsList from "./components/FriendsList";
+import { ProtectedRoute } from "./utils/ProtectedRoute";
 
-
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-      
-      <div className="App">
-        <h1>FRIENDS</h1>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <PrivateRoute exact path="/user" component={Friends} />
-        </Switch>
-        
-      </div>
+    <div className="App">
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <ProtectedRoute path="/friends" component={FriendsList} />
+      </Switch>
+    </div>
   );
 }
 
 export default App;
+
